@@ -15,6 +15,6 @@ If you want to run this example, please perform steps below:
 | [Jetty](http://eclipse.org/jetty/) | Lightweight web server.                           | [jettyEclipse](https://github.com/Khoulaiz/gradle-jetty-eclipse-plugin) |
 | [H2](http://www.h2database.com/html/main.html) | Lightweight in-memory database.       | [flyway](https://github.com/ben-manes/gradle-flyway-plugin) |
 | [PMD](http://pmd.sourceforge.net/) | Code quality validation.                          | [pmd](https://gradle.org/docs/current/userguide/pmd_plugin.html)               |
-| [Bootstrap](http://www.w3schools.com/bootstrap/) | CSS layouts (with jQuery).          |               |
+| [Bootstrap](https://github.com/twbs/bootstrap) | CSS layouts. Read [more](http://www.w3schools.com/bootstrap/).          |               |
 
 Have a fun.
