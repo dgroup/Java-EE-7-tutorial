@@ -7,6 +7,7 @@ Consequently, a filter should not have any dependencies on a web resource for wh
 this way, it can be composed with more than one type of web resource.
 
 The main tasks that a filter can perform are as follows:
+
 1. Query the request and act accordingly;
 2. Block the request-and-response pair from passing any further;
 3. Modify the request headers and data. You do this by providing a customized version of the request;
@@ -20,4 +21,4 @@ You can configure a web resource to be filtered by a chain of zero, one, or more
 This chain is specified when the web application containing the component is deployed and is instantiated
 when a web container loads the component.
 
-Read [more](https://docs.oracle.com/javaee/7/tutorial/servlets006.htm)
+Read [Oracle documentation](https://docs.oracle.com/javaee/7/tutorial/servlets006.htm).
