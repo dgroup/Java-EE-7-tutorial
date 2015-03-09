@@ -31,7 +31,6 @@ dependencies {
     compile 'ch.qos.logback:logback-core:1.1.2'
     compile 'ch.qos.logback:logback-classic:1.1.2' 
 
-    // h2 database framework
     compile 'com.h2database:h2:1.4.185'
 
     testCompile 'junit:junit:4.+'
