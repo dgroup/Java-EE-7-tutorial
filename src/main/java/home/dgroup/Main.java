@@ -17,7 +17,6 @@ import java.io.IOException;
  *      If a servlet implements this interface,
  *      no two threads will execute concurrently
  *      in the servlet's service method.
- *
  */
 @WebServlet(name = "Main", value="/Blog")
 public class Main extends HttpServlet  {

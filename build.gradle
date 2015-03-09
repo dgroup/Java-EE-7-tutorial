@@ -37,7 +37,7 @@ dependencies {
 
 
 pmd {
-    ruleSetFiles = rootProject.files("code-quality-rules.xml")
+    ruleSetFiles = rootProject.files("code-rules.xml")
 }
 
 
