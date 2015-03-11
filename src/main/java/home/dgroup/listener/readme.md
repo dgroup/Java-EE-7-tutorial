@@ -6,3 +6,5 @@ the `javax.servlet.http.HttpSessionBindingListener` interface.
 * When the session to which the object is attached will be passivated or activated.
  A session will be passivated or activated when it is moved between virtual machines or saved to and restored from persistent storage.
  To receive this notification, your object must implement the `javax.servlet.http.HttpSessionActivationListener` interface.
+
+ Read [Oracle Doc: Associating Objects with a Session](https://docs.oracle.com/javaee/7/tutorial/servlets009.htm)

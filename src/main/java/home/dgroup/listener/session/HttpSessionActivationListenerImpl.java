@@ -11,20 +11,18 @@ import javax.servlet.http.HttpSessionEvent;
  *  To receive this notification, your object must implement the
  *  {{@link javax.servlet.http.HttpSessionActivationListener}} interface.
  *
- * <a href="http://www.xyzws.com/servletfaq/when-do-i-use-httpsessionactivationlistener/4">When do I use HttpSessionActivationListener?</a>
- * <a href="http://memorynotfound.com/httpsessionactivationlistener-example-use-case/">Use Case</a>
- *
  * @author dgroup on 11.03.2015.
  */
 public class HttpSessionActivationListenerImpl implements HttpSessionActivationListener {
 
     @Override
     public void sessionWillPassivate(HttpSessionEvent se) {
-
+        // I'm going to migrate into another JVM
     }
 
     @Override
     public void sessionDidActivate(HttpSessionEvent se) {
-
+        // Hi JVM(cluster 2), I have already migrated from cluster 1,
+        //  but session can't be used at this moment.
     }
 }

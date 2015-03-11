@@ -11,3 +11,7 @@ Read more:
 * [Oracle Docs: Associating Objects with a Session](https://docs.oracle.com/javaee/7/tutorial/servlets009.htm)
 * [HttpSessionAttributeListener and HttpSessionBindingListener](http://stackoverflow.com/questions/11490166/httpsessionattributelistener-and-httpsessionbindinglistener)
 * [Difference between HttpSessionAttributeListener and HttpSessionBindingListener](http://www.quickprogrammingtips.com/java-ee/difference-between-httpsessionattributelistener-and-httpsessionbindinglistener.html)
+
+### HttpSessionActivationListener
+* [When do I use HttpSessionActivationListener?](http://www.xyzws.com/servletfaq/when-do-i-use-httpsessionactivationlistener/4)
+* [Use Case](http://memorynotfound.com/httpsessionactivationlistener-example-use-case/)
