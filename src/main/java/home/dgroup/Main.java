@@ -1,6 +1,7 @@
 package home.dgroup;
 
 import home.dgroup.db.DBStub;
+import home.dgroup.listener.session.HttpSessionBindingListenerImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -40,6 +41,8 @@ public class Main extends HttpServlet  {
 
         String resultURL = performYourLogic(req);
         LOG.debug("Result of your operation is {}", resultURL);
+
+        req.getSession().setAttribute("Tolia", new HttpSessionBindingListenerImpl("Fuck off"));
 
         RequestDispatcher dispatcher = req.getRequestDispatcher( resultURL );
         dispatcher.forward(req, resp);  // Forward vs Redirect. What? Why?

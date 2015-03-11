@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalTime;
 
+import static java.time.LocalTime.now;
+
 /**
  * Created by dgroup on 09.03.2015.
  */
@@ -26,7 +28,7 @@ public class MaintenanceFilter implements Filter {
     private LocalTime endTime;
 
     @Override
-    public void init(FilterConfig cfg) {
+    public void init(FilterConfig cfg){
         Integer time = Integer.valueOf( cfg.getInitParameter("Start time") );
         startTime = LocalTime.of( time, 0 );
 
@@ -37,22 +39,22 @@ public class MaintenanceFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-        throws IOException, ServletException {
+        throws IOException, ServletException
+    {
+        if (maintenancePeriod( now() )) {
 
-        LocalTime now = LocalTime.now();
-        LOG.debug("Filter now {}, start {}, end {}.", now, startTime, endTime );
-
-        if (maintenancePeriod(now)) {
             response.setContentType("text/html");
             PrintWriter out = response.getWriter();
             out.print("<h2 align='center'>System is unavailable due to maintenance operations.</h2><hr>");
             out.flush();
 
-        } else
+        } else {
             chain.doFilter(request, response);
+        }
     }
 
-    private boolean maintenancePeriod(LocalTime time){
+    private boolean maintenancePeriod(LocalTime time) {
+        LOG.debug("Got: now {}, start {}, end {}.", time, startTime, endTime );
         return startTime.isAfter(time) && endTime.isAfter(time);
     }
 
