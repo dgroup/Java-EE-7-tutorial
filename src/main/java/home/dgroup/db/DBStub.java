@@ -40,7 +40,7 @@ public final class DBStub {
 
     private DBStub() {}
 
-
+    @Deprecated
     public static void initDatabase() {
         try(Connection conn = DriverManager.getConnection(URL, USER, PASS)) {
 
@@ -84,6 +84,7 @@ public final class DBStub {
     }
 
 
+    @Deprecated
     public static void add(Comment comment) {
         try(Connection conn = DriverManager.getConnection(URL, USER, PASS);
             PreparedStatement prep = conn.prepareStatement(INSERT_COMMENT)) {
@@ -101,6 +102,7 @@ public final class DBStub {
     }
 
 
+    @Deprecated
     public static Collection<Comment> comments() {
         try(Connection conn = DriverManager.getConnection(URL, USER, PASS);
             PreparedStatement prep = conn.prepareStatement(SELECT_ALL);
