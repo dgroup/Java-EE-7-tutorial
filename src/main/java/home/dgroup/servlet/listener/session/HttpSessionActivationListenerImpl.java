@@ -1,4 +1,4 @@
-package home.dgroup.listener.session;
+package home.dgroup.servlet.listener.session;
 
 import javax.servlet.http.HttpSessionActivationListener;
 import javax.servlet.http.HttpSessionEvent;
@@ -16,12 +16,12 @@ import javax.servlet.http.HttpSessionEvent;
 public class HttpSessionActivationListenerImpl implements HttpSessionActivationListener {
 
     @Override
-    public void sessionWillPassivate(HttpSessionEvent se) {
+    public void sessionWillPassivate(HttpSessionEvent hse) {
         // I'm going to migrate into another JVM
     }
 
     @Override
-    public void sessionDidActivate(HttpSessionEvent se) {
+    public void sessionDidActivate(HttpSessionEvent hse) {
         // Hi JVM(cluster 2), I have already migrated from cluster 1,
         //  but session can't be used at this moment.
     }

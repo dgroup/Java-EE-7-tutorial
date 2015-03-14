@@ -1,6 +1,5 @@
-package home.dgroup.db;
+package home.dgroup.servlet.db;
 
-import home.dgroup.Comment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -39,6 +38,7 @@ public final class DBStub {
 
 
     private DBStub() {}
+
 
     @Deprecated
     public static void initDatabase() {

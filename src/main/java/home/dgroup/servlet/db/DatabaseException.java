@@ -1,4 +1,4 @@
-package home.dgroup.db;
+package home.dgroup.servlet.db;
 
 /**
  * Created by dgroup on 01.03.2015.

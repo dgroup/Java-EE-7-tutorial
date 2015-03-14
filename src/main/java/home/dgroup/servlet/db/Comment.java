@@ -1,4 +1,4 @@
-package home.dgroup;
+package home.dgroup.servlet.db;
 
 public class Comment {
     private String author;
