@@ -1,5 +1,5 @@
   
-## Servlet 3.x example
+## Servlet 3.x learning
 This is simple example of servlet & jsp technologies.
 If you want to run this example, please perform steps below:
 
