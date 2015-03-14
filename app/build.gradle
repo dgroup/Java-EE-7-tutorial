@@ -19,19 +19,15 @@ buildscript {
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 
 dependencies {
+    compile project(':util')
     providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
     compile 'javax.servlet:jstl:1.2'
 
-    // Logging frameworks
-    compile 'org.slf4j:slf4j-api:1.7.7'
-    compile 'ch.qos.logback:logback-core:1.1.2'
-    compile 'ch.qos.logback:logback-classic:1.1.2' 
-
-    compile 'org.apache.commons:commons-lang3:3.3.2'
     compile 'com.h2database:h2:1.4.185'
 
     testCompile 'junit:junit:4.+'

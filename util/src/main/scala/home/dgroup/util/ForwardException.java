@@ -1,4 +1,4 @@
-package home.dgroup.servlet.util;
+package home.dgroup.util;
 
 /**
  * @author dgroup on 14.03.2015.
