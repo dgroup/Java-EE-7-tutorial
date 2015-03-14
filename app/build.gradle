@@ -18,8 +18,8 @@ buildscript {
 
 
 repositories {
-    mavenCentral()
     mavenLocal()
+    mavenCentral()
 }
 
 
@@ -35,7 +35,7 @@ dependencies {
 
 
 pmd {
-    ruleSetFiles = rootProject.files("config/code-rules.xml")
+    ruleSetFiles = rootProject.files("config/java-code-rules.xml")
 }
 
 

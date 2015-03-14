@@ -1,8 +1,20 @@
 apply plugin: 'scala'
+apply plugin: 'scalaStyle'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'org.github.ngbinh.scalastyle:gradle-scalastyle-plugin_2.11:0.7.2'
+    }
+}
 
 repositories {
-    mavenCentral()
     mavenLocal()
+    mavenCentral()
+    maven { url "http://dl.bintray.com/releashaus/release" }
 }
 
 dependencies{
@@ -21,3 +33,9 @@ dependencies{
     testCompile 'junit:junit:4.+'
 }
 
+scalaStyle {
+    configLocation = "/config/scala-code-rules.xml"
+    includeTestSourceDirectory = true
+    source = "util/src/main/scala"
+    testSource = "util/src/test/scala"
+}
