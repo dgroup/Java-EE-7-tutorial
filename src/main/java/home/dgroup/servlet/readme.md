@@ -62,3 +62,24 @@ Instead of using the `@MultipartConfig` annotation to hard-code these attributes
 Read more:
 
 * [Uploading Files with Java Servlet Technology](https://docs.oracle.com/javaee/7/tutorial/servlets011.htm)
+
+### @Deprecated javax.servlet.SingleThreadModel
+Ensures that servlets handle only one request at a time. This interface has no methods.
+
+If a servlet implements this interface, you are guaranteed that no two threads
+will execute concurrently in the servlet's service method.
+The servlet container can make this guarantee by synchronizing access to a single instance of the servlet,
+ or by maintaining a pool of servlet instances and dispatching each new request to a free servlet.
+
+Note that SingleThreadModel does not solve all thread safety issues.
+For example, session attributes and static variables can still be accessed by multiple requests
+on multiple threads at the same time, even when SingleThreadModel servlets are used.
+It is recommended that a developer take other means to resolve those issues
+instead of implementing this interface, such as avoiding the usage of an instance variable
+or synchronizing the block of the code accessing those resources.
+This interface is deprecated in Servlet API version 2.4.
+
+Read more:
+
+* [Interface SingleThreadModel](http://docs.oracle.com/cd/E17802_01/products/products/servlet/2.5/docs/servlet-2_5-mr2/javax/servlet/SingleThreadModel.html)
+* [Why SingleThreadModel deprecated?](http://stackoverflow.com/questions/2551999/why-is-javax-servlet-singlethreadmodel-deprecated)

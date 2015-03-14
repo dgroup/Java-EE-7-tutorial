@@ -15,12 +15,6 @@ import java.io.IOException;
 
 import static home.dgroup.servlet.util.ServletUtils.*;
 
-/**
- * implements SingleThreadModel
- *      If a servlet implements this interface,
- *      no two threads will execute concurrently
- *      in the servlet's service method.
- */
 @WebServlet(name = "Main", value="/Blog")
 @MultipartConfig(
     location = "/attachments",
@@ -79,9 +73,9 @@ public class Main extends HttpServlet  {
         String author = getParameterAsString(req, "author");
         String email  = getParameterAsString(req, "email");
         String text   = getParameterAsString(req, "comment");
-        copyAttachment(req);
 
         Comment comment = new Comment(author, email, text);
+        copyAttachment(req);
         DBStub.add(comment);
         LOG.debug("Comment added: {}", comment);
 

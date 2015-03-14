@@ -24,6 +24,7 @@ public final class ServletUtils {
         throw new IllegalStateException("Not supported");
     }
 
+
     public static String getParameterAsString(HttpServletRequest req, String parameterName){
         notNull( req, "Request can't be a null");
         notNull( parameterName, "Key can't be a null");
@@ -51,6 +52,7 @@ public final class ServletUtils {
     }
 
 
+
     public static void forward(String url, HttpServletRequest req, HttpServletResponse resp){
         assertUrl(url);
         forward (req.getRequestDispatcher(url), req, resp);
@@ -63,6 +65,7 @@ public final class ServletUtils {
             throw new ForwardException(e);
         }
     }
+
 
 
     public static void include(String url, HttpServletRequest req, HttpServletResponse resp){
@@ -88,7 +91,6 @@ public final class ServletUtils {
 
 
 
-
     public static void copyAttachment(HttpServletRequest request){
         copyFile(request, "attachment");
     }
@@ -100,10 +102,10 @@ public final class ServletUtils {
         notNull(request, "Request can't be a null");
         assertString(parameter, "Parameter can't be a null");
         try {
-            for(Part p : request.getParts()) {
+            for(Part p : request.getParts())
                 if (parameter.equalsIgnoreCase(p.getName()))
                     p.write( getFileName(p) );
-            }
+
         } catch (IOException|ServletException e) {
             throw new CopyFileException(e);
         }
