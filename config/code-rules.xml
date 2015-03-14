@@ -12,6 +12,7 @@
             <priority>5</priority>
         </rule>
     -->
+    <exclude-pattern>.*/util/ServletUtils.java</exclude-pattern>
 
     <!-- empty.xml -->
     <rule ref="rulesets/java/empty.xml/EmptyCatchBlock">
@@ -226,7 +227,7 @@
     <rule ref="rulesets/java/codesize.xml/TooManyMethods">
         <priority>5</priority>
     </rule>
-
+   
     <!-- coupling.xml -->
     <rule ref="rulesets/java/coupling.xml/CouplingBetweenObjects">
         <priority>1</priority>

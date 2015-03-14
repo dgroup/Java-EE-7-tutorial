@@ -40,7 +40,9 @@
   <div class="row">
     <div            class     = "col-sm-3 col-md-6 col-lg-4">
       <form         role      = "form"
-                    action    = "Blog">
+                    action    = "Blog"
+                    enctype   = "multipart/form-data"
+                    method    = "post">
 
         <div        class     = "form-group">
           <label    for       = "author">Author:</label>
@@ -70,6 +72,13 @@
                     name      = "comment"
                     required  = "required"
                     maxlength = "3000"></textarea>
+        </div>
+
+        <div        class     = "form-group">
+          <label    for       = "attachment">Attachment:</label>
+          <input    type      = "file"
+                    id        = "attachment"
+                    name      = "attachment"/>
         </div>
 
         <input      type      = "hidden"
