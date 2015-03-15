@@ -8,7 +8,8 @@ import javax.servlet.http.HttpSessionAttributeListener;
 import javax.servlet.http.HttpSessionBindingEvent;
 
 /**
- * Created by dgroup on 01.03.2015.
+ * @author dgroup
+ * @since 01.03.2015
  */
 @WebListener
 public class HttpSessionAttributeListenerImpl implements HttpSessionAttributeListener {

@@ -11,7 +11,8 @@ import javax.servlet.http.HttpSessionEvent;
  *  To receive this notification, your object must implement the
  *  {{@link javax.servlet.http.HttpSessionActivationListener}} interface.
  *
- * @author dgroup on 11.03.2015.
+ * @author dgroup
+ * @since 11.03.2015
  */
 public class HttpSessionActivationListenerImpl implements HttpSessionActivationListener {
 

@@ -6,7 +6,7 @@ If you want to run this example, please perform steps below:
 1. Download [demo project](https://github.com/dgroup/Servlets_demo_3.x/archive/master.zip);
 2. Install [JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html);
 2. Install [gradle](https://www.gradle.org/downloads). For **Linux OS** you can use this [guide](https://github.com/dgroup/Servlets_demo/wiki/%5BOS-Linux-Ubuntu%5D-Java-&-Gradle-installation-notes); 
-3. Call `./app/run.bat`; 
+3. Call `run.bat`;
 4. Browser: [http://localhost:8080](http://localhost:8080).
 
 ## Tech overview

@@ -8,7 +8,8 @@ import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
 /**
- * Created by dgroup on 01.03.2015.
+ * @author dgroup
+ * @since 01.03.2015
  */
 @WebListener
 public class HttpSessionListenerImpl implements HttpSessionListener {

@@ -13,7 +13,8 @@ import java.time.LocalTime;
 import static java.time.LocalTime.now;
 
 /**
- * Created by dgroup on 09.03.2015.
+ * @author dgroup
+ * @since 09.03.2015
  */
 @WebFilter(
     filterName  = "CurfewFilter",

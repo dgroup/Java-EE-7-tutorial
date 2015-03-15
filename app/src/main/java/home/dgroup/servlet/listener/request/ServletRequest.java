@@ -9,7 +9,8 @@ import javax.servlet.annotation.WebListener;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * Created by dgroup on 01.03.2015.
+ * @author dgroup
+ * @since 01.03.2015
  */
 @WebListener
 public class ServletRequest implements ServletRequestListener {

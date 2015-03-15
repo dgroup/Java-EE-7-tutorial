@@ -40,7 +40,7 @@
   <div class="row">
     <div            class     = "col-sm-3 col-md-6 col-lg-4">
       <form         role      = "form"
-                    action    = "Blog"
+                    action    = "SaveComment"
                     enctype   = "multipart/form-data"
                     method    = "post">
 

@@ -1,5 +1,9 @@
 package home.dgroup.servlet.db;
 
+/**
+ * @author dgroup
+ * @since 01.03.2015
+ */
 public class Comment {
     private String author;
     private String email;

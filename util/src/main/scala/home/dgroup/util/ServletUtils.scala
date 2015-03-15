@@ -68,7 +68,7 @@ object ServletUtils {
     assertString(url, "URL can't be a blank")
   }
 
-  private def assertString(text: String, message: String) {
+  def assertString(text: String, message: String) {
     notBlank(text, message)
   }
 

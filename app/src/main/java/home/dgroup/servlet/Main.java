@@ -1,6 +1,5 @@
 package home.dgroup.servlet;
 
-import home.dgroup.servlet.db.Comment;
 import home.dgroup.servlet.db.DBStub;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,11 +15,6 @@ import java.io.IOException;
 import static home.dgroup.util.ServletUtils.*;
 
 @WebServlet(name = "Main", value="/Blog")
-@MultipartConfig(
-    location = "/attachments",
-    fileSizeThreshold=1024*1024, // file’s > 5 MB will be directly written to disk instead of saving in memory
-    maxFileSize=1024*1024*2,     // 10 MB is maximum size for a single upload
-    maxRequestSize=1024*1024*20) // 5 MB is maximum size allowed for multipart/form-data request.
 public class Main extends HttpServlet  {
     private static final Logger LOG = LoggerFactory.getLogger(Main.class);
 
@@ -56,37 +50,12 @@ public class Main extends HttpServlet  {
      * Spring MWC/JSF/etc frameworks are deprecated for education process.
      */
     private static String performYourLogic(HttpServletRequest req) {
-        switch (getParameterAsString(req, "action")){
-            case "toCommentsPage"   : return showCommentsPage(req);
-            case "saveComment"      : return saveComment(req);
-            default                 : return indexURL();
+
+        if ("toCommentsPage".equalsIgnoreCase( getParameterAsString(req, "action")) ) {
+            addToSession(req, "comments", DBStub.comments());
+            return "/jsp/comments.jsp";
         }
-    }
 
-    private static String showCommentsPage(HttpServletRequest req) {
-        addToSession(req, "comments", DBStub.comments());
-        return commentsURL();
-    }
-
-
-    private static String saveComment(HttpServletRequest req) {
-        String author = getParameterAsString(req, "author");
-        String email  = getParameterAsString(req, "email");
-        String text   = getParameterAsString(req, "comment");
-
-        Comment comment = new Comment(author, email, text);
-        copyAttachment(req);
-        DBStub.add(comment);
-        LOG.debug("Comment added: {}", comment);
-
-        return showCommentsPage(req);
-    }
-
-
-    private static String indexURL(){
         return "/jsp/index.jsp";
-    }
-    private static String commentsURL(){
-        return "/jsp/comments.jsp";
     }
 }

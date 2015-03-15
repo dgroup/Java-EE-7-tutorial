@@ -1,7 +1,8 @@
 package home.dgroup.servlet.db;
 
 /**
- * Created by dgroup on 01.03.2015.
+ * @author dgroup
+ * @since 01.03.2015
  */
 public class DatabaseException extends RuntimeException {
 

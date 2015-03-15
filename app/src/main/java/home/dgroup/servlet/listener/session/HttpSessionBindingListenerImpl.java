@@ -9,7 +9,9 @@ import javax.servlet.http.HttpSessionBindingListener;
 /**
  * Just for test. There are no any business logic in this class :)
  *
- * @author dgroup on 11.03.2015.
+ *
+ * @author dgroup
+ * @since 11.03.2015
  */
 public class HttpSessionBindingListenerImpl implements HttpSessionBindingListener {
     private static final Logger LOG = LoggerFactory.getLogger(HttpSessionAttributeListenerImpl.class);

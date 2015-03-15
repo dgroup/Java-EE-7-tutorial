@@ -8,7 +8,8 @@ import javax.servlet.ServletContextAttributeListener;
 import javax.servlet.annotation.WebListener;
 
 /**
- * Created by dgroup on 01.03.2015.
+ * @author dgroup
+ * @since 01.03.2015
  */
 @WebListener
 public class ContextAttributeListener implements ServletContextAttributeListener {
