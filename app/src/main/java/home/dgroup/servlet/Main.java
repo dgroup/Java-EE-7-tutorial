@@ -5,7 +5,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -51,7 +50,8 @@ public class Main extends HttpServlet  {
      */
     private static String performYourLogic(HttpServletRequest req) {
 
-        if ("toCommentsPage".equalsIgnoreCase( getParameterAsString(req, "action")) ) {
+        String what = getParameterAsString(req, "action");
+        if ("toCommentsPage".equals(what) ) {
             addToSession(req, "comments", DBStub.comments());
             return "/jsp/comments.jsp";
         }
