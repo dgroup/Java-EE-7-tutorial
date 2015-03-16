@@ -88,6 +88,7 @@ public final class DBStub {
     public static void add(Comment comment) {
         try(Connection conn = DriverManager.getConnection(URL, USER, PASS);
             PreparedStatement prep = conn.prepareStatement(INSERT_COMMENT)) {
+
             prep.setString(1, comment.getAuthor());
             prep.setString(2, comment.getEmail());
             prep.setString(3, comment.getText());
@@ -99,6 +100,7 @@ public final class DBStub {
             LOG.error("Unable to add comment.", e);
             throw new DatabaseException(e);
         }
+        LOG.debug("Comment have added: {}", comment);
     }
 
 
@@ -110,10 +112,10 @@ public final class DBStub {
 
             List<Comment> comments = new ArrayList<>();
             while (res.next()) {
-                Comment comm = new Comment();
-                comm.setAuthor  ( res.getString("author" ) );
-                comm.setText    ( res.getString("comment") );
-                comments.add(comm);
+                Comment comment = new Comment();
+                comment.setAuthor( res.getString("author") );
+                comment.setText( res.getString("comment") );
+                comments.add( comment );
             }
             return comments;
 

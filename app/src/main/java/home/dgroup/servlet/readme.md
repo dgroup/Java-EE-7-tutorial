@@ -48,3 +48,12 @@ Read more:
 
 * [Interface SingleThreadModel](http://docs.oracle.com/cd/E17802_01/products/products/servlet/2.5/docs/servlet-2_5-mr2/javax/servlet/SingleThreadModel.html)
 * [Why SingleThreadModel deprecated?](http://stackoverflow.com/questions/2551999/why-is-javax-servlet-singlethreadmodel-deprecated)
+
+
+### Include vs Forward
+The main difference is that when you use forward the control is transferred to the next servlet/jsp you are calling, while include retains the control with the current servlet, it just includes the processing done by the calling servlet/jsp(like doing any out.println or other processing).
+
+* [Include vs Forward](http://stackoverflow.com/questions/9432912/difference-between-include-and-forward-mechanism-for-request-dispatching-concept)
+* [Include vs Forward vs Redirect](http://www.coderanch.com/t/366059/Servlets/java/encodeURL-purpose-place)
+* [Forward](http://docs.oracle.com/javaee/7/api/javax/servlet/RequestDispatcher.html#forward%28javax.servlet.ServletRequest,%20javax.servlet.ServletResponse%29)
+* [Include](http://docs.oracle.com/javaee/6/api/javax/servlet/RequestDispatcher.html#include)

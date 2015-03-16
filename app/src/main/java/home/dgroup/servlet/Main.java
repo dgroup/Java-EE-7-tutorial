@@ -51,6 +51,7 @@ public class Main extends HttpServlet  {
     private static String performYourLogic(HttpServletRequest req) {
 
         String what = getParameterAsString(req, "action");
+
         if ("toCommentsPage".equals(what) ) {
             addToSession(req, "comments", DBStub.comments());
             return "/jsp/comments.jsp";

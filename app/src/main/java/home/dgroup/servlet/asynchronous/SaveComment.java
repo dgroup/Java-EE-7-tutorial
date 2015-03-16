@@ -14,9 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static home.dgroup.util.ServletUtils.assertString;
-import static home.dgroup.util.ServletUtils.copyAttachment;
-import static home.dgroup.util.ServletUtils.getParameterAsString;
+import static home.dgroup.util.ServletUtils.*;
 
 /**
  * @author dgroup
@@ -59,12 +57,10 @@ public class SaveComment extends HttpServlet{
         assertString(email, "Email can't be empty");
         assertString(text, "Text can't be empty");
 
-        Comment comment = new Comment(author, email, text);
+        copyAttachmentInAsyncMode( req );
+        DBStub.add( new Comment(author, email, text) );
 
-        copyAttachmentInAsyncMode(req);
-        DBStub.add(comment);
-
-        LOG.debug("Comment have added: {}", comment);
+        forward("/Blog?action=toCommentsPage", req, resp);
     }
 
 

@@ -17,8 +17,9 @@ import static java.time.LocalTime.now;
  * @since 09.03.2015
  */
 @WebFilter(
-    filterName  = "CurfewFilter",
-    urlPatterns = {"/*"},
+    filterName      = "CurfewFilter",
+    urlPatterns     = "/*",
+    asyncSupported  = true,
     initParams  = { @WebInitParam(name = "Duration",   value = "8" ),
                     @WebInitParam(name = "Start time", value = "22")})
 public class MaintenanceFilter implements Filter {
