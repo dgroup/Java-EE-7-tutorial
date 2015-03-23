@@ -1,4 +1,4 @@
-package home.dgroup.util
+package home.dgroup.servlet.util
 
 import javax.servlet.RequestDispatcher
 import javax.servlet.http.{HttpServletRequest, HttpServletResponse, HttpSession, Part}
@@ -15,7 +15,6 @@ import scala.collection.JavaConversions._
 object ServletUtils {
 
 
-
   def getParameterAsString(req: HttpServletRequest, parameterName: String): String = {
     notNull(req, "Request can't be a null")
     notNull(parameterName, "Key can't be a null")
@@ -26,16 +25,19 @@ object ServletUtils {
 
 
 
-  def addToSession(req: HttpServletRequest, key: String, value: AnyRef) {
+  def addToSession(req: HttpServletRequest, key: String, value: AnyRef)
+  {
     addToSession(req, key, value, create = true)
   }
 
-  def addToSession(req: HttpServletRequest, key: String, value: AnyRef, create: Boolean) {
+  def addToSession(req: HttpServletRequest, key: String, value: AnyRef, create: Boolean)
+  {
     notNull(req, "Request can't be a null")
     add(key, value, req.getSession(create))
   }
 
-  def add(key: String, value: AnyRef, session: HttpSession) {
+  def add(key: String, value: AnyRef, session: HttpSession)
+  {
     notNull(key, "Key can't be a null")
     notNull(value, "Value can't be a null")
     notNull(session, "Session can't be a null")
@@ -106,8 +108,7 @@ object ServletUtils {
     notNull(request, "Request can't be a null")
     assertString(parameter, "Parameter can't be a null")
     try {
-      for (uploadedPart: Part <- request.getParts)
-        if (parameter.equals(uploadedPart.getName))
+      for (uploadedPart : Part <- request.getParts if parameter.equals(uploadedPart.getName))
           copy(uploadedPart)
     }
     catch {
@@ -131,3 +132,8 @@ object ServletUtils {
 }
 
 final class ServletUtils { }
+
+
+class CopyFileException (cause: Throwable) extends RuntimeException (cause)
+class ForwardException  (cause: Throwable) extends RuntimeException (cause)
+class IncludeException  (cause: Throwable) extends RuntimeException (cause)

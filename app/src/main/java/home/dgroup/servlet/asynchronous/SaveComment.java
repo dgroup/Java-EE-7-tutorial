@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static home.dgroup.util.ServletUtils.*;
+import static home.dgroup.servlet.util.ServletUtils.*;
 
 /**
  * @author dgroup
@@ -29,7 +29,7 @@ import static home.dgroup.util.ServletUtils.*;
 
 @WebServlet(name = "SaveComment", value="/SaveComment", asyncSupported = true)
 
-public class SaveComment extends HttpServlet{
+public class SaveComment extends HttpServlet {
     private static final Logger LOG = LoggerFactory.getLogger(SaveComment.class);
 
 

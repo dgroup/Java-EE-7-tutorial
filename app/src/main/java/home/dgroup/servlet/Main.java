@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static home.dgroup.util.ServletUtils.*;
+import static home.dgroup.servlet.util.ServletUtils.*;
 
 @WebServlet(name = "Main", value="/Blog")
 public class Main extends HttpServlet  {
