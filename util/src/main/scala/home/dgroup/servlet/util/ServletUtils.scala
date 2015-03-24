@@ -124,9 +124,8 @@ object ServletUtils {
 
   private def extractFileName(part: Part): String = {
     val headerContent: String = part.getHeader("content-disposition")
-    for (token <- headerContent.split(";"))
-      if (token.trim.startsWith("filename"))
-        return token.substring(token.indexOf('=') + 2, token.length - 1)
+    for (token <- headerContent.split(";") if token.trim.startsWith("filename"))
+      return token.substring(token.indexOf('=') + 2, token.length - 1)
     ""
   }
 }
@@ -134,6 +133,20 @@ object ServletUtils {
 final class ServletUtils { }
 
 
-class CopyFileException (cause: Throwable) extends RuntimeException (cause)
-class ForwardException  (cause: Throwable) extends RuntimeException (cause)
-class IncludeException  (cause: Throwable) extends RuntimeException (cause)
+class CopyFileException (msg: String, cause: Throwable) extends RuntimeException (cause) {
+  def this(cause: Throwable){
+    this("", cause)
+  }
+}
+
+class ForwardException  (msg: String, cause: Throwable) extends RuntimeException (cause) {
+  def this(cause: Throwable){
+    this("", cause)
+  }
+}
+
+class IncludeException  (msg: String, cause: Throwable) extends RuntimeException (cause) {
+  def this(cause: Throwable){
+    this("", cause)
+  }
+}

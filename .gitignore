@@ -5,3 +5,8 @@
 /out
 /logs
 /.gradle
+/autotest/logs
+/autotest/target
+/autotest/build
+build
+target
