@@ -17,4 +17,9 @@ If you want to run this example, please perform steps below:
 | [PMD](http://pmd.sourceforge.net/) | Code quality validation.                          | [pmd](https://gradle.org/docs/current/userguide/pmd_plugin.html)               |
 | [Bootstrap](https://github.com/twbs/bootstrap) | CSS layouts. Read [more](http://www.w3schools.com/bootstrap/).          |               |
 
-Have a fun.
+
+## TODO list
+1. Inject CDI for Logging
+2. Activate [Serenity](http://thucydides.info/docs/serenity-staging/) for UI testing
+3. Implement simple chat (for feedback) via [WebSocket mechanism](https://docs.oracle.com/javaee/7/tutorial/websocket002.htm)
+4. Activate JPA instead of deprecated DriverManager
