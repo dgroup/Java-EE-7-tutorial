@@ -21,6 +21,11 @@ Read more:
 * [Async Servlets](http://www.jayway.com/2014/05/16/async-servlets/)
 
 
+### Additional questions
+* [What's difference between `javax.servlet.AsyncContext.startAsync()` and `new Thread(Runnable).start()`](http://stackoverflow.com/questions/29317638/whats-difference-between-javax-servlet-asynccontext-startasync-and-new-thr)
+* [I don't understand Async support in servlets 3.0 API](http://stackoverflow.com/questions/10065553/i-dont-understand-async-support-in-servlets-3-0-api)
+
+
 ### Uploading Files
 A new annotation, `javax.servlet.annotation.MultipartConfig`,
 is used to indicate that the servlet on which it is declared expects requests
@@ -56,3 +61,14 @@ Instead of using the `@MultipartConfig` annotation to hard-code these attributes
 Read more:
 
 * [Uploading Files with Java Servlet Technology](https://docs.oracle.com/javaee/7/tutorial/servlets011.htm)
+
+
+### Non-Blocking IO
+* [17.13 Nonblocking I/O](https://docs.oracle.com/javaee/7/tutorial/servlets013.htm)
+
+### Protocol Upgrade Processing
+* [17.14 Protocol Upgrade Processing](https://docs.oracle.com/javaee/7/tutorial/servlets014.htm)
+
+### AJAX in Servlet 3.0
+* [AJAX + Enterprise beans](https://docs.oracle.com/javaee/7/tutorial/servlets017.htm)
+
