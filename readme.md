@@ -18,8 +18,14 @@ If you want to run this example, please perform steps below:
 | [Bootstrap](https://github.com/twbs/bootstrap) | CSS layouts. Read [more](http://www.w3schools.com/bootstrap/).          |               |
 
 
-## TODO list
-1. Inject CDI for Logging
-2. Activate [Serenity](http://thucydides.info/docs/serenity-staging/) for UI testing
-3. Implement simple chat (for feedback) via [WebSocket mechanism](https://docs.oracle.com/javaee/7/tutorial/websocket002.htm)
-4. Activate JPA instead of deprecated DriverManager
+### TODO list (will be updated as appropriate)
+- [x] Enable Gradle
+- [x] Configuration Jetty + H2
+- [x] Enable PMD 
+- [x] Enable Scala for EE project 
+- [x] Enable Scalastyle 
+- [ ] Inject CDI for Logging
+- [ ] Activate [Serenity](http://thucydides.info/docs/serenity-staging/) for UI testing
+- [ ] Implement simple chat (for feedback) via [WebSocket mechanism](https://docs.oracle.com/javaee/7/tutorial/websocket002.htm)
+- [ ] Activate JPA instead of deprecated DriverManager
+- [ ] Learning [JEE7 documentation](https://docs.oracle.com/javaee/7/tutorial/index.html)
