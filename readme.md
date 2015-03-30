@@ -10,13 +10,12 @@ If you want to run this example, please perform steps below:
 4. Browser: [http://localhost:8080](http://localhost:8080).
 
 ## Tech overview
-| Tech                               | Why                                               | Gradle plugin |
-| ---------------------------------- |:--------------------------------------------------|---------------|
-| [Jetty](http://eclipse.org/jetty/) | Lightweight web server.                           | [jettyEclipse](https://github.com/Khoulaiz/gradle-jetty-eclipse-plugin) |
-| [H2](http://www.h2database.com/html/main.html) | Lightweight in-memory database.       | [flyway](https://github.com/ben-manes/gradle-flyway-plugin) |
-| [PMD](http://pmd.sourceforge.net/) | Code quality validation.                          | [pmd](https://gradle.org/docs/current/userguide/pmd_plugin.html)               |
-| [Bootstrap](https://github.com/twbs/bootstrap) | CSS layouts. Read [more](http://www.w3schools.com/bootstrap/).          |               |
-
+| Tech                               | Why                                               | 
+| ---------------------------------- |:--------------------------------------------------|
+| [Jetty](http://eclipse.org/jetty/) | Lightweight web server.                           | 
+| [H2](http://www.h2database.com/html/main.html) | Lightweight in-memory database.       | 
+| [PMD](http://pmd.sourceforge.net/) | Code quality validation.                          | 
+| [Bootstrap](https://github.com/twbs/bootstrap) | CSS layouts. Read [more](http://www.w3schools.com/bootstrap/).|
 
 ### TODO list (will be updated as appropriate)
 - [x] Enable Gradle
@@ -28,4 +27,6 @@ If you want to run this example, please perform steps below:
 - [ ] Activate [Serenity](http://thucydides.info/docs/serenity-staging/) for UI testing
 - [ ] Implement simple chat (for feedback) via [WebSocket mechanism](https://docs.oracle.com/javaee/7/tutorial/websocket002.htm)
 - [ ] Activate JPA instead of deprecated DriverManager
+  - [x] Activation of Persistence Unit
+  - [ ] Integrate CDI with EntityManager
 - [ ] Learning [JEE7 documentation](https://docs.oracle.com/javaee/7/tutorial/index.html)
