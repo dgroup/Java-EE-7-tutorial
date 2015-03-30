@@ -20,12 +20,12 @@ public class Main extends HttpServlet  {
 
     @Override
     public void init() throws ServletException {
-        DBStub.initDatabase();
         LOG.info("Initialization of database finished..");
     }
 
     @Override
     public void destroy() {
+        DBStub.close();
         LOG.info("I'm going to sleep.");
     }
 
