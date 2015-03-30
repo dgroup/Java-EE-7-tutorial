@@ -9,7 +9,7 @@ If you want to run this example, please perform steps below:
 3. Call `run.bat`;
 4. Browser: [http://localhost:8080](http://localhost:8080).
 
-## Tech overview
+### Tech overview
 | Tech                               | Why                                               | 
 | ---------------------------------- |:--------------------------------------------------|
 | [Jetty](http://eclipse.org/jetty/) | Lightweight web server.                           | 
