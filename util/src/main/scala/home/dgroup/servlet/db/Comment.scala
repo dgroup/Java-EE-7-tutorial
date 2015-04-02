@@ -3,6 +3,8 @@ package home.dgroup.servlet.db
 import javax.persistence.{Entity, GeneratedValue, Id, NamedQuery}
 import javax.validation.constraints.{NotNull, Size}
 
+import org.hibernate.validator.constraints.Email
+
 import scala.beans.BeanProperty
 
 /**
@@ -18,14 +20,14 @@ class Comment {
   @BeanProperty
   var id: Long = 0
 
-
   @BeanProperty
-  @NotNull
+  @NotNull(message="'Author' is a required field")
+  @Size(max = 40)
   var author: String = ""
 
   @BeanProperty
   @NotNull
-  @Size(max = 100)
+  @Email
   var email: String = ""
 
   @BeanProperty
