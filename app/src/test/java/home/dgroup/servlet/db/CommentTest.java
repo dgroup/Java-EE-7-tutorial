@@ -1,9 +1,6 @@
 package home.dgroup.servlet.db;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,15 +22,26 @@ public class CommentTest {
     private static final Logger LOG = LoggerFactory.getLogger(CommentTest.class);
     private static final long FEW_SECONDS = 2000;
 
-    private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("QA_schema");
+    private static EntityManagerFactory emf;
     private EntityManager eManager;
     private EntityTransaction trx;
+    private Comment comment;
+
+    @BeforeClass
+    public static void initEntityFactory(){
+        emf = Persistence.createEntityManagerFactory("QA_schema");
+    }
+    @AfterClass
+    public static void closeEntityFactory(){
+        emf.close();
+    }
 
 
     @Before
     public void initEntityManager() {
         eManager = emf.createEntityManager();
         trx = eManager.getTransaction();
+        comment = new Comment("dgroup", "dgroup@home.com", "This is a nice comment");
     }
 
     @After
@@ -45,18 +53,13 @@ public class CommentTest {
 
 
     @Test
-    public void shouldCreateStubComment() {
-        Comment comment = new Comment("dgroup", "dgroup@home.ru", "This is a nice comment");
-        LOG.debug("Initial {}", comment);
-
+    public void newComment() {
         persist( comment );
         assertTrue("ID should not be null", comment.id() > 0);
 
         Comment persistedComment = eManager.createNamedQuery("findCommentById", Comment.class)
             .setParameter("id", comment.id())
             .getSingleResult();
-
-        LOG.debug("Persisted {}", persistedComment);
 
         // can be replaced by `assertEquals`, but i guess it more readable
         assertThat( persistedComment.author(), is( comment.author() ));
@@ -77,24 +80,28 @@ public class CommentTest {
 
     @Test(expected = ConstraintViolationException.class)
     public void nullAuthor(){
-        persist( new Comment(null, "aaa@bbb.cc", "'author' should not be a null") );
+        comment.setAuthor(null);
+        persist(comment);
     }
 
     @Test(expected = ConstraintViolationException.class)
-    @Ignore // javax/el/PropertyNotFoundException
     public void longAuthor(){
-        Comment comment = new Comment();
-        comment.setEmail("bbb@ccc.dd");
-        comment.setText("Field 'author' is more than 40");
         comment.setAuthor("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-
         persist( comment );
     }
 
 
-    private void persist(Comment comment){
+    @Test(expected = ConstraintViolationException.class)
+    public void incorrectEmail(){
+        comment.setEmail("wrong @email format.ru");
+        persist( comment );
+    }
+
+
+
+    private void persist(Object entity){
         trx.begin();
-        eManager.persist(comment);
+        eManager.persist(entity);
         trx.commit();
     }
 }

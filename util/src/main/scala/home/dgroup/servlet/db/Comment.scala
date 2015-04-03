@@ -1,7 +1,7 @@
 package home.dgroup.servlet.db
 
 import javax.persistence.{Entity, GeneratedValue, Id, NamedQuery}
-import javax.validation.constraints.{NotNull, Size}
+import javax.validation.constraints.{Min, NotNull, Size}
 
 import org.hibernate.validator.constraints.Email
 
@@ -17,6 +17,7 @@ class Comment {
 
   @Id
   @GeneratedValue
+  @Min(value = 1)
   @BeanProperty
   var id: Long = 0
 
@@ -27,12 +28,12 @@ class Comment {
 
   @BeanProperty
   @NotNull
-  @Email
+  @Email(message = "Email has wrong format")
   var email: String = ""
 
   @BeanProperty
   @NotNull
-  @Size(max = 2000)
+  @Size(max = 2000, message = "Text should not be more than 2000 symbols")
   var text: String = ""
 
 
