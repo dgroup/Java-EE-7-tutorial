@@ -12,7 +12,7 @@ import scala.beans.BeanProperty
  * @since 01.03.2015
  */
 @Entity
-@NamedQuery(name = "findCommentById", query = "select c from Comment c where c.id = :id")
+@NamedQuery(name = "findById", query = "select c from Comment c where c.id = :id")
 class Comment {
 
   @Id

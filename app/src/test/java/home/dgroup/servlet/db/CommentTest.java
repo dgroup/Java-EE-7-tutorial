@@ -57,7 +57,7 @@ public class CommentTest {
         persist( comment );
         assertTrue("ID should not be null", comment.id() > 0);
 
-        Comment persistedComment = eManager.createNamedQuery("findCommentById", Comment.class)
+        Comment persistedComment = eManager.createNamedQuery("findById", Comment.class)
             .setParameter("id", comment.id())
             .getSingleResult();
 
