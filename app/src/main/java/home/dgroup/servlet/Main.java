@@ -1,9 +1,10 @@
 package home.dgroup.servlet;
 
-import home.dgroup.servlet.db.DBStub;
+import home.dgroup.servlet.db.DBService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,6 +18,9 @@ import static home.dgroup.servlet.util.ServletUtils.*;
 public class Main extends HttpServlet  {
     private static final Logger LOG = LoggerFactory.getLogger(Main.class);
 
+    @Inject
+    private DBService jdbc;
+
 
     @Override
     public void init() throws ServletException {
@@ -25,38 +29,26 @@ public class Main extends HttpServlet  {
 
     @Override
     public void destroy() {
-        DBStub.close();
         LOG.info("I'm going to sleep.");
     }
-
-    @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp)
-        throws ServletException, IOException {
-
-        String resultURL = performYourLogic(req);
-        LOG.debug("Result of your operation is {}", resultURL);
-
-        forward(resultURL, req, resp); // Forward vs Redirect. What? Why?
-    }
-
 
 
     /**
      * Warning. Bottleneck! Please do not use this approach in your labs/applications.
-     * For labs please use "Action servlet" paradigm instead of it.
-     *      http://reflection-note.blogspot.com/2008/06/blog-post_10.html
-     *
-     * Spring MWC/JSF/etc frameworks are deprecated for education process.
      */
-    private static String performYourLogic(HttpServletRequest req) {
+    @Override
+    protected void service(HttpServletRequest req, HttpServletResponse resp)
+        throws ServletException, IOException
+    {
+        String resultURL = "/jsp/index.jsp";
 
         String what = getParameterAsString(req, "action");
-
         if ("toCommentsPage".equals(what) ) {
-            addToSession(req, "comments", DBStub.comments());
-            return "/jsp/comments.jsp";
+            addToSession(req, "comments", jdbc.comments());
+            resultURL = "/jsp/comments.jsp";
         }
+        LOG.debug("Result of your operation is {}", resultURL);
 
-        return "/jsp/index.jsp";
+        forward(resultURL, req, resp); // Forward vs Redirect. What? Why?
     }
 }

@@ -57,3 +57,35 @@ The main difference is that when you use forward the control is transferred to t
 * [Include vs Forward vs Redirect](http://www.coderanch.com/t/366059/Servlets/java/encodeURL-purpose-place)
 * [Forward](http://docs.oracle.com/javaee/7/api/javax/servlet/RequestDispatcher.html#forward%28javax.servlet.ServletRequest,%20javax.servlet.ServletResponse%29)
 * [Include](http://docs.oracle.com/javaee/6/api/javax/servlet/RequestDispatcher.html#include)
+
+
+### CDI (Context and Dependency Injection)
+
+* `@javax.inject.Inject` - Common DI approach for Java EE 7
+* `@javax.inject.Named` - Allows to use class via *CamelCase* class id (MyService > myService).
+* `@javax.inject.Provider`
+* `@javax.enterprise.inject.Produces` - Basically, CDI can't inject some types (in case `*.jar` does not contain `META-INF/beans.xml`
+* `@javax.inject.Qualifier` - Allows to inject particular type of beans. Also, you can implement custom qualifiers type.
+* `@javax.inject.Scope`
+* `@javax.inject.Singleton`
+* `@javax.annotation.Resource`
+* `@javax.annotation.Resources`
+* `@PersistentUnit`
+
+
+### Component Scope
+
+* `@javax.enterprise.context.ApplicationScoped` - one instance during app work process
+* `@javax.enterprise.context.SessionScoped` - instance exists during HTTP session
+* `@javax.enterprise.context.RequestScoped` - one HTTP request or method call. Instance can exists while method processing.
+* `@javax.enterprise.context.ConversationScoped` - active during multiple call in scope of session. Start and End points defined by app.
+* `@javax.enterprise.context.Dependent` - default scope. Instance will be exists until exists parent instance.
+
+### Interceptors
+Package `@javax.interceptor.*` provides API (similar to AOP) for cross cutting functionality.
+
+### Lifecycle Interceptors
+
+* `@javax.annotation.PostConstruct`
+* `@javax.annotation.PostDestroy`
+* `@javax.annotation.PreDestroy`

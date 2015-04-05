@@ -1,10 +1,11 @@
 package home.dgroup.servlet.asynchronous;
 
 import home.dgroup.servlet.db.Comment;
-import home.dgroup.servlet.db.DBStub;
+import home.dgroup.servlet.db.DBService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.inject.Inject;
 import javax.servlet.AsyncContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -32,6 +33,8 @@ import static home.dgroup.servlet.util.ServletUtils.*;
 public class SaveComment extends HttpServlet {
     private static final Logger LOG = LoggerFactory.getLogger(SaveComment.class);
 
+    @Inject
+    private DBService jdbc;
 
     @Override
     public void init() throws ServletException {
@@ -47,8 +50,8 @@ public class SaveComment extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp)
-        throws ServletException, IOException {
-
+        throws ServletException, IOException
+    {
         String author = getParameterAsString(req, "author");
         String email  = getParameterAsString(req, "email");
         String text   = getParameterAsString(req, "comment");
@@ -58,7 +61,7 @@ public class SaveComment extends HttpServlet {
         assertString(text, "Text can't be empty");
 
         copyAttachmentInAsyncMode( req );
-        DBStub.add( new Comment(author, email, text) );
+        jdbc.add( new Comment(author, email, text) );
 
         forward("/Blog?action=toCommentsPage", req, resp);
     }
