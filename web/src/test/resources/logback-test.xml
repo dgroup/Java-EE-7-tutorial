@@ -7,21 +7,23 @@
         </encoder>
     </appender>
 
-    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>logs/Demo.log</file>
+    <!--<appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/QA-test.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- daily rollover -->
-            <fileNamePattern>logs/Demo.%d{yyyy-MM-dd}.zip</fileNamePattern>
-            <!-- keep 30 days' worth of history -->
+            &lt;!&ndash; daily rollover &ndash;&gt;
+            <fileNamePattern>logs/QA-test.%d{yyyy-MM-dd}.zip</fileNamePattern>
+            &lt;!&ndash; keep 30 days' worth of history &ndash;&gt;
             <maxHistory>30</maxHistory>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>50MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
         <encoder>
-            <pattern>%date [%-40thread] %level %class.%method - %msg%n</pattern>
+            <pattern>%.-19date %.-5level %class.%method - %msg%n</pattern>
         </encoder>
     </appender>
+-->
+    <logger name="home.dgroup.servlet.db.CommentTest" level="debug" />
 
     <root level="info">
         <appender-ref ref="console" />

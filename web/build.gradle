@@ -23,7 +23,7 @@ repositories {
 
 
 dependencies {
-    compile project(':util')
+    compile project(':common')
 
     // EE layer
     providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
