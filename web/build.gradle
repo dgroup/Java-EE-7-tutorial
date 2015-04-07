@@ -31,6 +31,7 @@ dependencies {
     compile         'javax.websocket:javax.websocket-api:1.1'
     compile         'javax:javaee-api:7.0'
     compile         'org.glassfish:javax.el:3.0.0'
+    compile         'org.jboss.weld.servlet:weld-servlet:2.2.10.Final'
 
 
     // Database layer

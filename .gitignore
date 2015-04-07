@@ -10,3 +10,5 @@
 /autotest/build
 build
 target
+*.ipr
+*.iws
